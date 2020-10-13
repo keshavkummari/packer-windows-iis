@@ -1,2 +1,1 @@
-# packer-windows-iis
-Custom Windows AMI and Deploy a WebApplication on IIS Server using Packer &amp; Powershell
+# Packer AMI build for IIS on Win 2012 R2 & .Net 4.5.2

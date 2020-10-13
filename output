@@ -1,0 +1,170 @@
+cloudbinary@Clouds-MBP windows-packer % packer build windows.json
+amazon-ebs: output will be in this color.
+
+==> amazon-ebs: Prevalidating any provided VPC information
+==> amazon-ebs: Prevalidating AMI Name: IIS WebServer 1602576937
+    amazon-ebs: Found Image ID: ami-0a11ca1795e68bd94
+==> amazon-ebs: Creating temporary keypair: packer_5f856229-455b-6870-f163-fadcad1b973c
+==> amazon-ebs: Creating temporary security group for this instance: packer_5f85622e-9b94-229d-a10d-5f43235f2d39
+==> amazon-ebs: Authorizing access to port 5986 from [0.0.0.0/0] in the temporary security groups...
+==> amazon-ebs: Launching a source AWS instance...
+==> amazon-ebs: Adding tags to source instance
+    amazon-ebs: Adding tag: "Name": "Packer Builder"
+    amazon-ebs: Instance ID: i-07491702f4a9ed402
+==> amazon-ebs: Waiting for instance (i-07491702f4a9ed402) to become ready...
+==> amazon-ebs: Waiting for auto-generated password for instance...
+    amazon-ebs: It is normal for this process to take up to 15 minutes,
+    amazon-ebs: but it usually takes around 5. Please wait.
+    amazon-ebs:  
+    amazon-ebs: Password retrieved!
+==> amazon-ebs: Using winrm communicator to connect: 3.86.59.32
+==> amazon-ebs: Waiting for WinRM to become available...
+    amazon-ebs: WinRM connected.
+==> amazon-ebs: Connected to WinRM!
+==> amazon-ebs: Provisioning with Powershell...
+==> amazon-ebs: Provisioning with powershell script: ./scripts/EC2Config.ps1
+==> amazon-ebs: Provisioning with powershell script: ./scripts/BundleConfig.ps1
+==> amazon-ebs: Provisioning with powershell script: ./scripts/iis-install.ps1
+    amazon-ebs:
+    amazon-ebs: Success Restart Needed Exit Code      Feature Result
+    amazon-ebs: ------- -------------- ---------      --------------
+    amazon-ebs: True    No             Success        {ASP.NET 4.5, .NET Framework 3.5 (incl...
+    amazon-ebs: WARNING: Windows automatic updating is not enabled. To ensure that your
+    amazon-ebs: newly-installed role or feature is automatically updated, turn on Windows
+    amazon-ebs: Update.
+==> amazon-ebs: Provisioning with powershell script: ./scripts/websiteDeploy.ps1
+    amazon-ebs:
+    amazon-ebs: Success Restart Needed Exit Code      Feature Result
+    amazon-ebs: ------- -------------- ---------      --------------
+    amazon-ebs: True    No             Success        {IIS Management Scripts and Tools}
+    amazon-ebs: WARNING: Windows automatic updating is not enabled. To ensure that your
+    amazon-ebs: newly-installed role or feature is automatically updated, turn on Windows
+    amazon-ebs: Update.
+    amazon-ebs:
+    amazon-ebs: PSPath            : Microsoft.PowerShell.Core\FileSystem::C:\ProGen
+    amazon-ebs: PSParentPath      : Microsoft.PowerShell.Core\FileSystem::C:\
+    amazon-ebs: PSChildName       : ProGen
+    amazon-ebs: PSDrive           : C
+    amazon-ebs: PSProvider        : Microsoft.PowerShell.Core\FileSystem
+    amazon-ebs: PSIsContainer     : True
+    amazon-ebs: Name              : ProGen
+    amazon-ebs: FullName          : C:\ProGen
+    amazon-ebs: Parent            :
+    amazon-ebs: Exists            : True
+    amazon-ebs: Root              : C:\
+    amazon-ebs: Extension         :
+    amazon-ebs: CreationTime      : 10/13/2020 8:22:13 AM
+    amazon-ebs: CreationTimeUtc   : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastAccessTime    : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastAccessTimeUtc : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastWriteTime     : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastWriteTimeUtc  : 10/13/2020 8:22:13 AM
+    amazon-ebs: Attributes        : Directory
+    amazon-ebs: BaseName          : ProGen
+    amazon-ebs: Mode              : d----
+    amazon-ebs:
+    amazon-ebs:
+    amazon-ebs: PSPath            : Microsoft.PowerShell.Core\FileSystem::C:\ProGen\SiteRoot
+    amazon-ebs: PSParentPath      : Microsoft.PowerShell.Core\FileSystem::C:\ProGen
+    amazon-ebs: PSChildName       : SiteRoot
+    amazon-ebs: PSDrive           : C
+    amazon-ebs: PSProvider        : Microsoft.PowerShell.Core\FileSystem
+    amazon-ebs: PSIsContainer     : True
+    amazon-ebs: Name              : SiteRoot
+    amazon-ebs: FullName          : C:\ProGen\SiteRoot
+    amazon-ebs: Parent            : ProGen
+    amazon-ebs: Exists            : True
+    amazon-ebs: Root              : C:\
+    amazon-ebs: Extension         :
+    amazon-ebs: CreationTime      : 10/13/2020 8:22:13 AM
+    amazon-ebs: CreationTimeUtc   : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastAccessTime    : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastAccessTimeUtc : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastWriteTime     : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastWriteTimeUtc  : 10/13/2020 8:22:13 AM
+    amazon-ebs: Attributes        : Directory
+    amazon-ebs: BaseName          : SiteRoot
+    amazon-ebs: Mode              : d----
+    amazon-ebs:
+    amazon-ebs:
+    amazon-ebs: PSPath            : Microsoft.PowerShell.Core\FileSystem::C:\ProGen\ProGenVirtu
+    amazon-ebs:                     alDir1
+    amazon-ebs: PSParentPath      : Microsoft.PowerShell.Core\FileSystem::C:\ProGen
+    amazon-ebs: PSChildName       : ProGenVirtualDir1
+    amazon-ebs: PSDrive           : C
+    amazon-ebs: PSProvider        : Microsoft.PowerShell.Core\FileSystem
+    amazon-ebs: PSIsContainer     : True
+    amazon-ebs: Name              : ProGenVirtualDir1
+    amazon-ebs: FullName          : C:\ProGen\ProGenVirtualDir1
+    amazon-ebs: Parent            : ProGen
+    amazon-ebs: Exists            : True
+    amazon-ebs: Root              : C:\
+    amazon-ebs: Extension         :
+    amazon-ebs: CreationTime      : 10/13/2020 8:22:13 AM
+    amazon-ebs: CreationTimeUtc   : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastAccessTime    : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastAccessTimeUtc : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastWriteTime     : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastWriteTimeUtc  : 10/13/2020 8:22:13 AM
+    amazon-ebs: Attributes        : Directory
+    amazon-ebs: BaseName          : ProGenVirtualDir1
+    amazon-ebs: Mode              : d----
+    amazon-ebs:
+    amazon-ebs:
+    amazon-ebs: PSPath            : Microsoft.PowerShell.Core\FileSystem::C:\ProGen\ProGenVirtu
+    amazon-ebs:                     alDir2
+    amazon-ebs: PSParentPath      : Microsoft.PowerShell.Core\FileSystem::C:\ProGen
+    amazon-ebs: PSChildName       : ProGenVirtualDir2
+    amazon-ebs: PSDrive           : C
+    amazon-ebs: PSProvider        : Microsoft.PowerShell.Core\FileSystem
+    amazon-ebs: PSIsContainer     : True
+    amazon-ebs: Name              : ProGenVirtualDir2
+    amazon-ebs: FullName          : C:\ProGen\ProGenVirtualDir2
+    amazon-ebs: Parent            : ProGen
+    amazon-ebs: Exists            : True
+    amazon-ebs: Root              : C:\
+    amazon-ebs: Extension         :
+    amazon-ebs: CreationTime      : 10/13/2020 8:22:13 AM
+    amazon-ebs: CreationTimeUtc   : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastAccessTime    : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastAccessTimeUtc : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastWriteTime     : 10/13/2020 8:22:13 AM
+    amazon-ebs: LastWriteTimeUtc  : 10/13/2020 8:22:13 AM
+    amazon-ebs: Attributes        : Directory
+    amazon-ebs: BaseName          : ProGenVirtualDir2
+    amazon-ebs: Mode              : d----
+    amazon-ebs:
+    amazon-ebs:
+    amazon-ebs: Name  : SiteRootPool
+    amazon-ebs: State : Started
+    amazon-ebs:
+    amazon-ebs:
+    amazon-ebs: Name         : ProGen
+    amazon-ebs: ID           : 2
+    amazon-ebs: State        : Started
+    amazon-ebs: PhysicalPath : C:\ProGen\SiteRoot
+    amazon-ebs: Bindings     : Microsoft.IIs.PowerShell.Framework.ConfigurationElement
+    amazon-ebs:
+    amazon-ebs:
+    amazon-ebs: Path             : /SiteRoot
+    amazon-ebs: ApplicationPool  : DefaultAppPool
+    amazon-ebs: EnabledProtocols : http
+    amazon-ebs: PhysicalPath     : C:\ProGen\SiteRoot
+    amazon-ebs:
+    amazon-ebs:
+    amazon-ebs: Name         : ProGenVirtualDir1
+    amazon-ebs: PhysicalPath : C:\ProGen\ProGenVirtualDir1
+    amazon-ebs:
+    amazon-ebs:
+    amazon-ebs: Name         : ProGenVirtualDir2
+    amazon-ebs: PhysicalPath : C:\ProGen\ProGenVirtualDir2
+    amazon-ebs:
+==> amazon-ebs: Provisioning with Powershell...
+==> amazon-ebs: Provisioning with powershell script: /var/folders/sc/hnnkcnjs0f17t27thq7cvxdw0000gn/T/powershell-provisioner162370145
+    amazon-ebs: Configuring IIS Role and sysprepping...
+==> amazon-ebs: Stopping the source instance...
+    amazon-ebs: Stopping instance
+==> amazon-ebs: Waiting for the instance to stop...
+==> amazon-ebs: Creating AMI IIS WebServer 1602576937 from instance i-07491702f4a9ed402
+    amazon-ebs: AMI: ami-012c7dbbc0ed44b3b
+==> amazon-ebs: Waiting for AMI to become ready...

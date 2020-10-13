@@ -1,0 +1,39 @@
+{
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "region": "us-east-1",
+            "instance_type": "t2.micro",
+            "ami_name": "IIS WebServer {{timestamp}}",
+            "user_data_file": "./scripts/SetUpWinRM.ps1",
+            "communicator": "winrm",
+            "winrm_username": "Administrator",
+            "winrm_use_ssl": true,
+            "winrm_insecure": true,
+            "source_ami":"ami-0a11ca1795e68bd94"
+               
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "powershell",
+            "scripts": [
+                "./scripts/EC2Config.ps1",
+                "./scripts/BundleConfig.ps1",
+                "./scripts/iis-install.ps1",
+                "./scripts/websiteDeploy.ps1"
+            ]
+        },
+        {
+            "type": "powershell",
+            "inline": [
+                "Write-Host 'Configuring IIS Role and sysprepping...'"
+            ]
+        }
+    ],
+    "post-processors": [
+        {
+            "type": "manifest"
+        }
+    ]
+}
